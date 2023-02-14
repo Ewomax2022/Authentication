@@ -28,6 +28,10 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(1000))
 
 
+with app.app_context():
+    db.create_all()
+
+
 @app.route('/')
 def home():
     return render_template("index.html")
